@@ -1,17 +1,41 @@
-<body>
+
+<template name='tasks_list'>
     <div class="container">
         <header>
             <h1>Todo List</h1>
-        
-            <form class="new-task">
-                <input type="text" name="text" placeholder="Type to add new tasks" />
-            </form>
+            <button class="btn_create">Create new TODO</button>
         </header>
-    
+
         <ul>
             {{#each tasks}}
                 {{> task}}
             {{/each}}
         </ul>
     </div>
-</body>
+</template>
+
+<template name='create_form'>
+    <div class="container">
+        <header>
+            <h1>Create todo</h1>
+            <form class="new-task">
+                <input type="text" class="new-task__title" name="title" placeholder="Type to add new title" />
+                <textarea type="text" class="new-task__description" rows="3" name="description" placeholder="Describe new task" ></textarea>
+                <button type="submit" class="new-task__btn">Submit</button>
+            </form>
+        </header>
+    </div>
+</template>
+
+<template name='edit_form'>
+    <div class="container">
+        <header>
+            <h1>Edit todo</h1>
+            <form class="new-task">
+                <input type="text" name="text" value="{{task._id}}" />
+                <input type="text" name="text" value="{{task.text}}" />
+                <input type="text" name="text" value="{{task.createdAt}}" />
+            </form>
+        </header>
+    </div>
+</template>

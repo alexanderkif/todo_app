@@ -11,6 +11,11 @@ Template.task.events({
         $set: { checked: ! this.checked },
         });
     },
+    'click li'(event) {
+        if (event.target.classList.contains('edit')) {
+            FlowRouter.go('Edit.form', { task: JSON.stringify(this) });
+        }
+    },
     'click .delete'() {
         Tasks.remove(this._id);
     },
