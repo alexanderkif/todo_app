@@ -50,7 +50,7 @@ form {
   text-align: end;
 }
  
-.new-task input, .task__title {
+.new-task input, .edit-task input, .task__title {
   box-sizing: border-box;
   padding: 10px;
   background: transparent;
@@ -59,7 +59,7 @@ form {
   font-size: 1.2em;
 }
  
-.new-task__description, .task__desription {
+.new-task__description, .edit-task__description, .task__desription {
   box-sizing: border-box;
   padding: 10px;
   background: transparent;
@@ -68,13 +68,14 @@ form {
   font-size: 1em;
   resize: none;
   border-radius: 5px;
+  color: inherit;
 }
 
-.new-task__description:focus, .task__desription:focus {
+.new-task__description:focus, .edit-task__description:focus, .task__desription:focus {
   outline: 0;
 }
 
-.new-task__btn {
+.new-task__btn, .edit-task__btn {
   align-self: flex-end;
   font-weight: bold;
   background: transparent;
@@ -82,7 +83,7 @@ form {
   border: 1px solid;
 }
  
-.new-task input:focus{
+.new-task input:focus, .edit-task input:focus {
   outline: 0;
 }
 
@@ -116,7 +117,7 @@ li .task__title {
   margin-left: 10px;
 }
  
-li .id {
+li .id, .edit-task__hidden {
   display: none;
 }
  

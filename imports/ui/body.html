@@ -31,10 +31,12 @@
     <div class="container">
         <header>
             <h1>Edit todo</h1>
-            <form class="new-task">
-                <input type="text" name="text" value="{{task._id}}" />
-                <input type="text" name="text" value="{{task.text}}" />
-                <input type="text" name="text" value="{{task.createdAt}}" />
+            <form class="edit-task">
+                <input type="text" class="edit-task__hidden" name="id" value="{{task._id}}"/>
+                <input type="text" class="edit-task__hidden" name="createdAt" value="{{task.createdAt}}"/>
+                <input type="text" class="edit-task__title" name="title" value="{{task.title}}"/>
+                <textarea type="text" class="edit-task__description" rows="3" name="description" >{{task.description}}</textarea>
+                <button type="submit" class="edit-task__btn">Submit</button>
             </form>
         </header>
     </div>

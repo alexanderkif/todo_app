@@ -42,3 +42,25 @@ Template.create_form.events({
     FlowRouter.go('Lists.show');
   },
 });
+
+  Template.edit_form.events({
+    'click .edit-task__btn'(event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+  
+      // Get value from form element
+      const target = $('.edit-task').get(0);
+      const title = target.title.value;
+      const description = target.description.value;
+
+      Tasks.update(target.id.value, {
+        $set: {
+          title,
+          description,
+          updatedAt: new Date().toISOString().slice(0, 16).replace('T', ' ')
+        },
+      });
+  
+      FlowRouter.go('Lists.show');
+    },
+});
