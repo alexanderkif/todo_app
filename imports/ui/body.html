@@ -18,11 +18,12 @@
     <div class="container">
         <header>
             <h1>Create todo</h1>
-            <form class="new-task">
+            {{> quickForm collection="Tasks" id="insertTaskForm" type="method" meteormethod="insertTask"}}
+            <!-- <form class="new-task">
                 <input type="text" class="new-task__title" name="title" placeholder="Type to add new title" />
                 <textarea type="text" class="new-task__description" rows="3" name="description" placeholder="Describe new task" ></textarea>
                 <button type="submit" class="new-task__btn">Submit</button>
-            </form>
+            </form> -->
         </header>
     </div>
 </template>
@@ -31,13 +32,20 @@
     <div class="container">
         <header>
             <h1>Edit todo</h1>
-            <form class="edit-task">
+            {{#autoForm collection="Tasks" id="updateTaskForm" type="method" meteormethod="updateTask"}}
+                {{> afQuickField name="title" value=task.title}}
+                {{> afQuickField name="description" value=task.description}}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            {{/autoForm}}
+            <!-- <form class="edit-task">
                 <input type="text" class="edit-task__hidden" name="id" value="{{task._id}}"/>
                 <input type="text" class="edit-task__hidden" name="createdAt" value="{{task.createdAt}}"/>
                 <input type="text" class="edit-task__title" name="title" value="{{task.title}}"/>
                 <textarea type="text" class="edit-task__description" rows="3" name="description" >{{task.description}}</textarea>
                 <button type="submit" class="edit-task__btn">Submit</button>
-            </form>
+            </form> -->
         </header>
     </div>
 </template>

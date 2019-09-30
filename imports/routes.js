@@ -16,6 +16,6 @@ FlowRouter.route('/create', {
 FlowRouter.route('/edit/:task', {
     name: 'Edit.form',
     action(params) {
-        BlazeLayout.render('edit_form', { task: JSON.parse(params.task) });
+        BlazeLayout.render('edit_form', { task: JSON.parse(params.task), id: params.task._id });
     }
 });
