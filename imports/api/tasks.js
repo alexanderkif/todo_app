@@ -7,7 +7,6 @@ export const Tasks = new Mongo.Collection('tasks');
 Tasks.attachSchema(new SimpleSchema({
     title: {
         type: String,
-        label: "Title",
         max: 200,
         unique: true
     },
@@ -29,13 +28,8 @@ Tasks.attachSchema(new SimpleSchema({
         optional: true,
         label: 'UpdatedAt'
     },
-  }, { tracker: Tracker }));
-  
-  Tasks.allow({
-    insert: function () {
-      return true;
-    },
-    remove: function () {
-      return true;
+    checked: {
+        type: Boolean,
+        defaultValue: false
     }
-  });
+  }, { tracker: Tracker }));

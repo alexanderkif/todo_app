@@ -5,7 +5,6 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
     insertTask(task) {
-        console.log("Insert task here");
 
         // Get value from form element
         const title = task.title;
@@ -20,7 +19,6 @@ Meteor.methods({
         });
     },
     updateTask(task) {
-        console.log("Update task here");
 
         // Get value from form element
         const title = task.title;

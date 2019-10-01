@@ -22,6 +22,7 @@ body {
   margin: 0 auto;
   min-height: 100%;
   background: white;
+  color: #333;
 }
  
 header {
@@ -31,66 +32,14 @@ header {
   position: relative;
 }
  
-#login-buttons {
-  display: block;
-}
- 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
 }
- 
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-  position: relative;
-  text-align: end;
-}
- 
-.new-task input, .edit-task input, .task__title {
-  box-sizing: border-box;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  width: 100%;
-  font-size: 1.2em;
-}
- 
-.new-task__description, .edit-task__description, .task__desription {
-  box-sizing: border-box;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  width: 100%;
-  font-size: 1em;
-  resize: none;
-  border-radius: 5px;
-  color: inherit;
-}
 
-.new-task__description:focus, .edit-task__description:focus, .task__desription:focus {
-  outline: 0;
-}
-
-.new-task__btn, .edit-task__btn {
-  align-self: flex-end;
-  font-weight: bold;
-  background: transparent;
-  font-size: 1em;
-  border: 1px solid;
-}
- 
-.new-task input:focus, .edit-task input:focus {
-  outline: 0;
-}
-
-.task__time {
-  font-size: 0.8em;
-}
- 
 ul {
   margin: 0;
   padding: 0;
@@ -122,7 +71,7 @@ li .id, .edit-task__hidden {
 }
  
 li.checked {
-  color: #888;
+  color: #aaa;
 }
  
 li.checked .task__title {
@@ -132,10 +81,6 @@ li.checked .task__title {
 li.private {
   background: #eee;
   border-color: #ddd;
-}
- 
-header .hide-completed {
-  float: right;
 }
  
 .toggle-private {
@@ -155,4 +100,30 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
+}
+
+input[type="text"], textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-group {
+  padding-bottom: 10px;
+}
+
+.help-block, .control-label {
+  padding-left: 10px;
+}
+
+.help-block {
+  color: red;
 }
