@@ -1,19 +1,20 @@
-import assert from "assert";
+import assert from 'assert';
+import { Meteor } from 'meteor/meteor';
 
-describe("todo_app", function () {
-  it("package.json has correct name", async function () {
-    const { name } = await import("../package.json");
-    assert.strictEqual(name, "todo_app");
+describe('todo_app', () => {
+  it('package.json has correct name', async () => {
+    const { name } = await import('../package.json');
+    assert.strictEqual(name, 'todo_app');
   });
 
   if (Meteor.isClient) {
-    it("client is not server", function () {
+    it('client is not server', () => {
       assert.strictEqual(Meteor.isServer, false);
     });
   }
 
   if (Meteor.isServer) {
-    it("server is not client", function () {
+    it('server is not client', () => {
       assert.strictEqual(Meteor.isClient, false);
     });
   }

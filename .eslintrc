@@ -1,0 +1,46 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true
+  },
+  "plugins": [
+    "jasmine",
+    "meteor"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:meteor/recommended",
+    "plugin:jasmine/recommended"
+  ],
+  "settings": {
+    "import/resolver": "meteor"
+  },
+  "rules": {
+    "no-unused-expressions": "off",
+    "spaced-comment": 0,
+    "object-curly-newline": ["error", {
+      "multiline": true,
+      "consistent": true
+    }],
+    "meteor/audit-argument-checks": 0,
+    "meteor/template-names": 0,
+    "react/no-this-in-sfc": 0,
+    "max-len": ["error", 140],
+    "strict": 0,
+    "object-shorthand": 0,
+    "no-underscore-dangle": 0,
+    "no-console": 0,
+    "indent": [1, 2],
+    "import/extensions": 0,
+    "import/no-absolute-path": 0,
+    "import/prefer-default-export": 0,
+    "import/no-named-as-default-member": 0,
+    "import/no-extraneous-dependencies": 0,
+    "meteor/no-session": 0,
+  },
+}
