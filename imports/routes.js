@@ -1,5 +1,6 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import { Tasks } from './api/tasks';
 
 FlowRouter.route('/', {
   name: 'Lists.show',
@@ -15,9 +16,9 @@ FlowRouter.route('/create', {
   },
 });
 
-FlowRouter.route('/edit/:task', {
+FlowRouter.route('/edit/:taskId', {
   name: 'Edit.form',
   action(params) {
-    BlazeLayout.render('edit_form', { task: JSON.parse(params.task), id: params.task._id });
+    BlazeLayout.render('edit_form', { task: Tasks.findOne(params.taskId) });
   },
 });

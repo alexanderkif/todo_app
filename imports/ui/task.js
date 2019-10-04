@@ -12,7 +12,7 @@ Template.task.events({
   },
   'click li'(event) {
     if (event.target.classList.contains('edit')) {
-      FlowRouter.go('Edit.form', { task: JSON.stringify(this) });
+      FlowRouter.go('Edit.form', { taskId: this._id });
     }
   },
   'click .delete'() {

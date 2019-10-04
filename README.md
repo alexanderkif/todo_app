@@ -2,5 +2,7 @@
 Meteor todo from tutorial
 
 ## to run
-- npm install
-- npm run start
+- meteor npm install
+- meteor
+## eslint
+- meteor npm run lint

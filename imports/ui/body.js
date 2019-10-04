@@ -18,3 +18,15 @@ Template.tasks_list.events({
     FlowRouter.go('Create.form');
   },
 });
+
+Template.create_form.events({
+  'submit'() {
+    FlowRouter.go('Lists.show');
+  },
+});
+
+Template.edit_form.events({
+  'submit'() {
+    FlowRouter.go('Lists.show');
+  },
+});
