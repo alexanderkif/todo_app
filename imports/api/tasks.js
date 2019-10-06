@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
@@ -5,6 +6,11 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 export const Tasks = new Mongo.Collection('tasks');
+
+if (Meteor.isServer) {
+  // This code only runs on the server
+  Meteor.publish('tasks', () => Tasks.find({}, { sort: { createdAt: -1 } }));
+}
 
 Tasks.attachSchema(new SimpleSchema({
   title: {
