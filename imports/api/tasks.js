@@ -9,7 +9,7 @@ export const Tasks = new Mongo.Collection('tasks');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('tasks', () => Tasks.find({}, { sort: { createdAt: -1 } }));
+  Meteor.publish('tasks', () => Tasks.find({}));
 }
 
 Tasks.attachSchema(new SimpleSchema({
@@ -35,6 +35,7 @@ Tasks.attachSchema(new SimpleSchema({
     type: Date,
     optional: true,
     label: 'UpdatedAt',
+    autoValue: () => new Date(),
   },
   checked: {
     type: Boolean,

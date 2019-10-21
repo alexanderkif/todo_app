@@ -17,13 +17,7 @@
     <div class="container">
         <header>
             <h1>Create todo</h1>
-            {{#autoForm collection="Tasks" id="insertTaskForm" type="method" meteormethod="insertTask"}}
-                {{> afQuickField name="title" value=task.title}}
-                {{> afQuickField name="description" value=task.description}}
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            {{/autoForm}}
+            {{> quickForm collection="Tasks" id="insertTaskForm" type="method" fields="title, description" meteormethod="insertTask"  }}
         </header>
     </div>
 </template>
@@ -32,7 +26,7 @@
     <div class="container">
         <header>
             <h1>Edit todo</h1>
-            {{#autoForm collection="Tasks" id="updateTaskForm" type="method" meteormethod="updateTask"}}
+            {{#autoForm collection="Tasks" id="updateTaskForm" type="update" doc=task}}
                 {{> afQuickField name="title" value=task.title readonly="true"}}
                 {{> afQuickField name="description" value=task.description}}
                 <div class="form-group">
