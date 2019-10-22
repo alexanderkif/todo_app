@@ -12,7 +12,7 @@ if (Meteor.isServer) {
   Meteor.publish('tasks', () => Tasks.find({}));
 }
 
-Tasks.attachSchema(new SimpleSchema({
+export const TasksSchema = new SimpleSchema({
   title: {
     type: String,
     max: 200,
@@ -28,17 +28,18 @@ Tasks.attachSchema(new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    label: 'CreatedAt',
-    optional: true,
+    defaultValue: () => new Date(),
   },
   updatedAt: {
     type: Date,
     optional: true,
-    label: 'UpdatedAt',
     autoValue: () => new Date(),
   },
   checked: {
     type: Boolean,
     defaultValue: false,
+    optional: true,
   },
-}, { tracker: Tracker }));
+}, { tracker: Tracker });
+
+Tasks.attachSchema(TasksSchema);

@@ -21,8 +21,12 @@ Template.tasks_list.events({
 });
 
 Template.create_form.events({
-  'submit'() {
-    FlowRouter.go('Lists.show');
+  'submit'(event) {
+    console.log(event.target.title.value);
+    if (event.target.title.value) {
+      FlowRouter.go('Lists.show');
+      // event.target = {};
+    }
   },
 });
 
