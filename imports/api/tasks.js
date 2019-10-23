@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { Tracker } from 'meteor/tracker';
 import SimpleSchema from 'simpl-schema';
@@ -6,11 +5,6 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 export const Tasks = new Mongo.Collection('tasks');
-
-if (Meteor.isServer) {
-  // This code only runs on the server
-  Meteor.publish('tasks', () => Tasks.find({}));
-}
 
 export const TasksSchema = new SimpleSchema({
   title: {
@@ -28,7 +22,10 @@ export const TasksSchema = new SimpleSchema({
   },
   createdAt: {
     type: Date,
-    defaultValue: () => new Date(),
+    autoform: {
+      value: new Date(),
+      type: 'hidden',
+    },
   },
   updatedAt: {
     type: Date,

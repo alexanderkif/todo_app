@@ -25,7 +25,6 @@ Template.create_form.events({
     console.log(event.target.title.value);
     if (event.target.title.value) {
       FlowRouter.go('Lists.show');
-      // event.target = {};
     }
   },
 });
